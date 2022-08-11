@@ -1,0 +1,44 @@
+app = "my-awesome-mumble"
+
+[build]
+  image = "mumblevoip/mumble-server:latest"
+
+[env]
+  MUMBLE_CONFIG_WELCOMETEXT="<br />Welcome to <b>EXAMPLE SERVER</b>.<br />Enjoy your stay!<br />"
+  MUMBLE_CONFIG_REGISTERNAME="watercooler"
+  MUMBLE_CONFIG_CERT_REQUIRED="true"
+  MUMBLE_CONFIG_BANDWIDTH="128000"
+  MUMBLE_CONFIG_TIMEOUT="30"
+  MUMBLE_CONFIG_USERS="25"
+  MUMBLE_CONFIG_USERS_PER_CHANNEL="25"
+  MUMBLE_CONFIG_REMEMBER_CHANNEL_DURATION="0"
+  MUMBLE_CONFIG_TEXT_MESSAGE_LENGTH="0"
+  MUMBLE_CONFIG_IMAGE_MESSAGE_LENGTH="131072"
+
+[mounts]
+  source = "mumble"
+  destination = "/data"
+
+[[services]]
+  internal_port = 64738
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = "64738"
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "10s"
+    restart_limit = 0
+    timeout = "2s"
+
+[[services]]
+  internal_port = 64738
+  protocol = "udp"
+
+  [[services.ports]]
+    port = "64738"
+
+[metrics]
+  port = 9091
+  path = "/metrics"

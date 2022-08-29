@@ -8,7 +8,7 @@ Run a [Mumble](https://www.mumble.info/) server on [Fly.io](https://fly.io/).
 $ fly apps create my-awesome-mumble
 $ fly secrets set MUMBLE_SUPERUSER_PASSWORD="secure_password"
 $ fly secrets set MUMBLE_CONFIG_SERVER_PASSWORD="another_secure_password"
-$ fly volumes create mumble --region fra --app my-awesome-mumble
+$ fly volumes create mumble --region fra --size 1 --app my-awesome-mumble
 $ fly deploy --remote-only --config fly.toml
 ```
 

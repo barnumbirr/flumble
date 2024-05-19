@@ -1,10 +1,13 @@
 app = "my-awesome-mumble"
+primary_region = "cdg"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
 
 [build]
-  image = "mumblevoip/mumble-server:latest"
+  image = "mumblevoip/mumble-server:v1.4.274-4"
 
 [env]
-  MUMBLE_CONFIG_WELCOMETEXT="<br />Welcome to <b>EXAMPLE SERVER</b>.<br />Enjoy your stay!<br />"
+  MUMBLE_CONFIG_WELCOMETEXT="<br />Welcome to <b>my-awesome-mumble</b>.<br />Enjoy your stay!<br />"
   MUMBLE_CONFIG_REGISTERNAME="watercooler"
   MUMBLE_CONFIG_CERT_REQUIRED="true"
   # See https://github.com/mumble-voip/mumble/issues/3895#issuecomment-615929714

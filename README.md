@@ -8,14 +8,14 @@ Run a [Mumble](https://www.mumble.info/) server on [Fly.io](https://fly.io/).
 $ fly apps create my-awesome-mumble
 $ fly secrets set MUMBLE_SUPERUSER_PASSWORD="secure_password"
 $ fly secrets set MUMBLE_CONFIG_SERVER_PASSWORD="another_secure_password"
-$ fly volumes create mumble --region fra --size 1 --app my-awesome-mumble
 $ fly deploy --remote-only --config fly.toml
+$ fly ips allocate-v4
 ```
 
 ## License
 
 ```
-Copyright 2022 Martin Simon
+Copyright 2022-2024 Martin Simon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
